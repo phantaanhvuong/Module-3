@@ -17,13 +17,22 @@ VALUES
 ('P004', 'Chuột Logitech M350', 450000, 0, 'Chuột không dây Bluetooth nhỏ gọn', 'Hết hàng'),
 ('P005', 'Tai nghe Sony WH-1000XM5', 8490000, 8, 'Tai nghe chống ồn cao cấp của Sony', 'Còn hàng');
 
+
+-- Tạo Unique Index trên bảng Products (sử dụng cột productCode để tạo chỉ mục)
 create index i_unique on products(productCode);
+
+-- Tạo Composite Index trên bảng Products (sử dụng 2 cột productName và productPrice)
 create index i_composite on products(productPrice);
+
+-- Sử dụng câu lệnh EXPLAIN để biết được câu lệnh SQL của bạn thực thi như nào
 explain select * from Products where productPrice > 10000000;
 select count(*) from Products where ProductPrice > 10000000;
 select * from Products where ProductPrice > 10000000;
 drop index i_composite on Products;
 
+
+-- Tạo view lấy về các thông tin: productCode, productName,
+-- productPrice, productStatus từ bảng products.
 create view view_product as
 select 
     productCode,
@@ -46,7 +55,7 @@ drop view if exists view_product;
 
 DROP PROCEDURE IF EXISTS get_all_products;
 
-
+-- Tạo store procedure lấy tất cả thông tin của tất cả các sản phẩm trong bảng product
 delimiter //
 create procedure get_all_products()
 begin
@@ -54,6 +63,8 @@ select * from products;
 end //
 delimiter ;
 
+
+-- tạo store procedure thêm một sản phẩm mới
 delimiter //
 create procedure addProduct(
 	in p_productCode varchar(50),
@@ -92,6 +103,9 @@ call addProduct(
     'tiết kiệm điện năng, công nghệ Inverter',
     'Còn hàng'
 );
+
+
+-- Tạo store procedure sửa thông tin sản phẩm theo id
 delimiter //
 
 create procedure sp_update_product_by_id (
@@ -127,6 +141,9 @@ call sp_update_product_by_id(
     'Còn hàng'
 );
 
+
+
+-- Tạo store procedure xoá sản phẩm theo id
 create procedure sp_delete_product_by_id (
     in p_id int
 )

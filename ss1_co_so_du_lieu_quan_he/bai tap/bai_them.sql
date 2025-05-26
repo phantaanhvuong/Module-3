@@ -1,22 +1,24 @@
 create database codegym_management;
 use codegym_management;
-create table student(
-	id int primary key auto_increment,
-    name varchar(255),
-    birthday date,
-    gender varchar(15),
-    email varchar(255),
-	score float,
-    class_id int unique,
-    account_name varchar(255) unique,
-    foreign key (class_id) references class(id),
-    foreign key (account_name) references account(name)
+CREATE TABLE student (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255),
+    birthday DATE,
+    gender VARCHAR(15),
+    email VARCHAR(255),
+    score FLOAT,
+    class_id INT UNIQUE,
+    account_name VARCHAR(255) UNIQUE,
+    FOREIGN KEY (class_id)
+        REFERENCES class (id),
+	FOREIGN KEY (account_name)
+		REFERENCES account (name)
 );
 create table account(
     name varchar(255) primary key,
     password varchar(255),
     student_id int unique, 
-    foreign key(student_id) references student(id)
+    foreign key(student_id) references student(id) 
 );
 create table class(
 	id int primary key auto_increment,
