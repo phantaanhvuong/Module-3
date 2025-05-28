@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        *{
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .row{
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+        .container{
+            height: 100vh;
+        }
+
+        header {
+            background-color: #222;
+            height: 8%;
+            display: flex;
+            align-items: center;
+        }
+
+        header ul{
+            height: 8%;
+            display: flex;
+            align-items: center;
+        }
+
+        header li {
+            list-style: none;
+            margin-left: 20px;
+            color: white;
+        }
+
+
+
+        main{
+            height:84%;
+        }
+        .left{
+            background: #f8f6f6;
+        }
+        .right{
+            background: #f8f6f6;
+            padding: 1%;
+        }
+        footer{
+            background: #686666;
+            height: 8%;
+            color: white ;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .col-m-1{width: 8.33333%}
+        .col-m-2{width: 16.666667%}
+        .col-m-3{width: 25%}
+        .col-m-4{width: 33.33333%}
+        .col-m-5{width: 41.66667%}
+        .col-m-6{width: 50%}
+        .col-m-7{width: 58.33333%}
+        .col-m-8{width: 66.66667%}
+        .col-m-9{width: 75%}
+        .col-m-10{width: 83.33333%}
+        .col-m-11{width: 91.666667%}
+        .col-m-12{width: 100%}
+        button{
+            padding: 30px 50px;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <header class="row">
+            <ul >
+                <li>Logo</li>
+                <li class="active">Home</li>
+                <li>About</li>
+                <li>Project</li>
+                <li>Contract</li>
+                <li style="margin-left: 290%">
+                    <div style="display: flex">
+                        <i class="fas fa-sign-in-alt"></i> <!-- Icon đăng nhập -->
+                        <a href="#" style="margin-left: 5px; text-decoration: none;color: #CDCDCD">Login</a>
+                    </div>
+                </li>
+            </ul>
+    </header>
+
+        <div class="row " style="min-height: 84%" >
+            <div class="left col-m-2" >
+                <div style=" align-items: center; margin-top: 20px; text-align: center; color: blue">
+                    <p style="margin-bottom: 10px"><a>Link</a></p>
+                    <p style="margin-bottom: 10px"><a>Link</a></p>
+                    <p><a>Link</a></p>
+                </div>
+            </div>
+            <div class="main col-m-8">
+                <div style="margin-left: 10px">
+                    <h1>Welcome</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+                <br>
+                <hr>
+                <br>
+                <div style="margin-left: 10px">
+                    <h2>Test</h2>
+                    <p>Lorem ipsum...</p>
+                </div>
+            </div>
+            <div class="right col-m-2">
+                <div style="text-align: center">
+                    <button>ADS</button>
+                    <button>ADS</button>
+                </div>
+            </div>
+        </div>
+
+    <footer class="row">Footer Text</footer>
+</div>
+
+</body>
+</html>
