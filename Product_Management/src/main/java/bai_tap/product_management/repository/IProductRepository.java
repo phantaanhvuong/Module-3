@@ -8,4 +8,9 @@ public interface IProductRepository {
     List<Product> findAll();
     void add(Product product);
     void deleteById(int id);
+    Product findById(int id);
+    List<Product> searchByName(String name);
+    void update(Product product);
+
+
 }

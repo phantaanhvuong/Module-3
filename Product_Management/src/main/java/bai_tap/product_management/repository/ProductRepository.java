@@ -31,4 +31,35 @@ public class ProductRepository implements IProductRepository{
             }
         }
     }
+    @Override
+    public Product findById(int id) {
+        for (Product p : productList) {
+            if (p.getId() == id) {
+                return p;
+            }
+        }
+        return null;
+    }
+    @Override
+    public List<Product> searchByName(String name) {
+        List<Product> result = new ArrayList<>();
+        for (Product p : productList) {
+            if (p.getName().toLowerCase().contains(name.toLowerCase())) {
+                result.add(p);
+            }
+        }
+        return result;
+    }
+    @Override
+    public void update(Product product) {
+        for (int i = 0; i < productList.size(); i++) {
+            if (productList.get(i).getId() == product.getId()) {
+                productList.set(i, product);
+                break;
+            }
+        }
+    }
+
+
+
 }

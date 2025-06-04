@@ -19,23 +19,40 @@
 </head>
 <body>
 <h1>Quản lý sản phẩm</h1>
+<form method="get" action="/products" class="mb-3">
+    <input type="hidden" name="action" value="search">
+    <div class="input-group">
+        <input type="text" class="form-control" name="searchName" placeholder="Nhập tên sản phẩm cần tìm">
+        <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+    </div>
+</form>
+
+<p style="color: red">${param.mess}</p>
 <a href="/products?action=add">Create product</a>
-<table border="1" >
-    <thead>
+<table class="table table-striped table-dark">
+
     <tr >
         <th>STT</th>
+        <th>ID</th>
         <th>Name</th>
         <th>Price</th>
         <th>Describe</th>
         <th>Manufacturer</th>
         <th>Delete</th>
+        <th>Edit</th>
+
     </tr>
-    </thead>
-    <tbody>
+
     <c:forEach items="${productList}" var="product" varStatus="status">
         <tr>
             <td>${status.count}</td>
-            <td>${product.name}</td>
+            <td>${product.id}</td>
+            <td>
+                <a href="/products?action=detail&id=${product.id}" class="text-decoration-none text-info">
+                        ${product.name}
+                </a>
+            </td>
+
             <td>${product.price}</td>
             <td>${product.describe}</td>
             <td>${product.manufacturer}</td>
@@ -45,10 +62,14 @@
                     Delete
                 </button>
             </td>
+            <td>
+                <a href="/products?action=edit&id=${product.id}" class="btn btn-warning btn-sm">Edit</a>
+            </td>
+
         </tr>
 
     </c:forEach>
-    </tbody>
+
 
 </table>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
