@@ -19,13 +19,22 @@
 </head>
 <body>
 <h1>Quản lý sản phẩm</h1>
+<%--<form method="get" action="/products" class="mb-3">--%>
+<%--    <input type="hidden" name="action" value="search">--%>
+<%--    <div class="input-group">--%>
+<%--        <input type="text" class="form-control" name="searchName" placeholder="Nhập tên sản phẩm cần tìm">--%>
+<%--        <button class="btn btn-primary" type="submit">Tìm kiếm</button>--%>
+<%--    </div>--%>
+<%--</form>--%>
 <form method="get" action="/products" class="mb-3">
     <input type="hidden" name="action" value="search">
-    <div class="input-group">
-        <input type="text" class="form-control" name="searchName" placeholder="Nhập tên sản phẩm cần tìm">
+    <div class="input-group mb-2">
+        <input type="text" class="form-control" name="searchName" placeholder="Nhập tên sản phẩm">
+        <input type="text" class="form-control" name="searchCategory" placeholder="Nhập tên danh mục">
         <button class="btn btn-primary" type="submit">Tìm kiếm</button>
     </div>
 </form>
+
 
 <p style="color: red">${param.mess}</p>
 <a href="/products?action=add">Create product</a>
@@ -38,6 +47,7 @@
         <th>Price</th>
         <th>Describe</th>
         <th>Manufacturer</th>
+        <th>Category</th>
         <th>Delete</th>
         <th>Edit</th>
 
@@ -56,6 +66,7 @@
             <td>${product.price}</td>
             <td>${product.describe}</td>
             <td>${product.manufacturer}</td>
+            <td>${product.name_category}</td>
             <td>
                 <button onclick="deleteInfo('${product.id}','${product.name}')" type="button"
                         class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">

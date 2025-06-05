@@ -1,5 +1,6 @@
 package bai_tap.product_management.service;
 
+import bai_tap.product_management.dto.ProductDto;
 import bai_tap.product_management.entity.Product;
 import bai_tap.product_management.repository.IProductRepository;
 import bai_tap.product_management.repository.ProductRepository;
@@ -10,30 +11,31 @@ public class ProductService implements IProductService{
     private IProductRepository productRepository = new ProductRepository();
 
     @Override
-    public List<Product> findAll() {
+    public List<ProductDto> findAll() {
         return productRepository.findAll();
     }
 
     @Override
-    public void add(Product product) {
-        productRepository.add(product);
+    public boolean add(Product product) {
+       return productRepository.add(product);
     }
 
     @Override
-    public void deleteById(int id) {
-        productRepository.deleteById(id);
+    public boolean deleteById(int id) {
+        return productRepository.deleteById(id);
     }
+    @Override
+    public List<ProductDto> searchByNameAndCategory(String name, String category) {
+        return productRepository.searchByNameAndCategory(name, category);
+    }
+    @Override
+    public boolean update(Product product) {
+        return productRepository.update(product);
+    }
+
     @Override
     public Product findById(int id) {
         return productRepository.findById(id);
-    }
-    @Override
-    public List<Product> searchByName(String name) {
-        return productRepository.searchByName(name);
-    }
-    @Override
-    public void update(Product product) {
-        productRepository.update(product);
     }
 
 

@@ -1,32 +1,25 @@
-package bai_tap.product_management.entity;
+package bai_tap.product_management.dto;
 
-public class Product {
+public class ProductDto {
     private int id;
     private String name;
-    private Double price;
+    private double price;
     private String describe;
     private String manufacturer;
-    private int id_category;
+    private String name_category;
 
-    public Product() {
+    public ProductDto() {
     }
 
-    public Product(int id, String name, Double price, String describe, String manufacturer, int id_category) {
+    public ProductDto(int id, String name, double price, String describe, String manufacturer, String name_category) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.describe = describe;
         this.manufacturer = manufacturer;
-        this.id_category = id_category;
+        this.name_category = name_category;
     }
 
-    public Product(String name, double price, String describe, String manufacturer, int idCategory) {
-        this.name = name;
-        this.price = price;
-        this.describe = describe;
-        this.manufacturer = manufacturer;
-        this.id_category = id_category;
-    }
 
     public int getId() {
         return id;
@@ -44,11 +37,11 @@ public class Product {
         this.name = name;
     }
 
-    public Double getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -68,11 +61,11 @@ public class Product {
         this.manufacturer = manufacturer;
     }
 
-    public int getId_category() {
-        return id_category;
+    public String getName_category() {
+        return name_category;
     }
 
-    public void setId_category(int id_category) {
-        this.id_category = id_category;
+    public void setName_category(String name_category) {
+        this.name_category = name_category;
     }
 }
